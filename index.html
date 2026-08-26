@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -10,34 +9,13 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>OPTIC//X | A Ciência da Luz</title>
-
-
-    <!-- FONTES FUTURISTAS -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
+    <title>OPTIC/X | A Ciência da Luz</title>
 
     <style>
 
-
-        /* =========================
+        /* ========================================
            CONFIGURAÇÕES GERAIS
-        ========================== */
+        ======================================== */
 
         * {
             margin: 0;
@@ -45,114 +23,105 @@
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-            background: #050816;
-            color: #edf8ff;
-            font-family: "Rajdhani", sans-serif;
+            background:
+                radial-gradient(
+                    circle at 50% 10%,
+                    rgba(40, 100, 255, 0.18),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #05070f,
+                    #090d1a,
+                    #03040a
+                );
+
+            color: #eaf3ff;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             overflow-x: hidden;
         }
 
 
-        body::before {
+        /* ========================================
+           FUNDO FUTURISTA
+        ======================================== */
 
-            content: "";
-
+        .grid-bg {
             position: fixed;
 
-            inset: 0;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
 
             background-image:
-
                 linear-gradient(
-                    rgba(0, 229, 255, 0.035) 1px,
+                    rgba(255, 255, 255, 0.025) 1px,
                     transparent 1px
                 ),
-
                 linear-gradient(
                     90deg,
-                    rgba(0, 229, 255, 0.035) 1px,
+                    rgba(255, 255, 255, 0.025) 1px,
                     transparent 1px
                 );
 
             background-size: 45px 45px;
 
-            pointer-events: none;
-
-            z-index: -2;
-
-        }
-
-
-        body::after {
-
-            content: "";
-
-            position: fixed;
-
-            width: 700px;
-            height: 700px;
-
-            top: -300px;
-            right: -250px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(0, 217, 255, 0.12),
-                    transparent 70%
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent
                 );
-
-            pointer-events: none;
 
             z-index: -1;
-
         }
 
 
-        /* =========================
-           BARRA DE ROLAGEM
-        ========================== */
-
-        ::-webkit-scrollbar {
-            width: 9px;
-        }
-
-
-        ::-webkit-scrollbar-track {
-            background: #050816;
-        }
-
-
-        ::-webkit-scrollbar-thumb {
-
-            background:
-                linear-gradient(
-                    #00e5ff,
-                    #7b61ff
-                );
-
-            border-radius: 20px;
-
-        }
-
-
-        /* =========================
+        /* ========================================
            CABEÇALHO
-        ========================== */
+        ======================================== */
 
         header {
-
             position: sticky;
 
             top: 0;
 
+            width: 100%;
+
             z-index: 1000;
+
+            background:
+                rgba(5, 7, 15, 0.88);
+
+            backdrop-filter:
+                blur(18px);
+
+            border-bottom:
+                1px solid
+                rgba(100, 180, 255, 0.18);
+        }
+
+
+        .navbar {
+            max-width: 1400px;
+
+            margin: auto;
+
+            min-height: 80px;
 
             display: flex;
 
@@ -160,103 +129,100 @@
 
             align-items: center;
 
-            gap: 20px;
-
-            padding: 18px 7%;
-
-            background:
-                rgba(5, 8, 22, 0.94);
-
-            backdrop-filter: blur(20px);
-
-            border-bottom:
-                1px solid
-                rgba(0, 229, 255, 0.18);
-
+            padding:
+                15px 30px;
         }
 
 
         .logo {
-
-            font-family: "Orbitron", sans-serif;
-
-            font-size: 23px;
+            font-size: 1.5rem;
 
             font-weight: 900;
 
             letter-spacing: 3px;
 
-            white-space: nowrap;
+            color: #ffffff;
 
+            text-decoration: none;
         }
 
 
         .logo span {
-            color: #00e5ff;
+            color: #55cfff;
         }
 
 
         nav {
-
             display: flex;
 
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 18px;
+            gap: 22px;
 
             flex-wrap: wrap;
 
+            justify-content: flex-end;
         }
 
 
         nav a {
+            color: #d7e8ff;
 
             text-decoration: none;
 
-            color: #a7bac8;
+            font-weight: 700;
 
-            font-size: 17px;
-
-            font-weight: 600;
+            font-size: 0.9rem;
 
             transition: 0.3s;
 
+            position: relative;
+        }
+
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -7px;
+
+            width: 0%;
+            height: 2px;
+
+            background:
+                #55cfff;
+
+            transition: 0.3s;
         }
 
 
         nav a:hover {
-
-            color: #00e5ff;
-
-            text-shadow:
-                0 0 15px
-                rgba(0, 229, 255, 0.8);
-
+            color: #55cfff;
         }
 
 
-        /* =========================
+        nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* ========================================
            HERO
-        ========================== */
+        ======================================== */
 
         .hero {
-
-            min-height: 88vh;
+            min-height: 92vh;
 
             display: flex;
 
-            justify-content: center;
-
             align-items: center;
+
+            justify-content: center;
 
             text-align: center;
 
-            padding: 100px 8%;
-
-            position: relative;
-
+            padding:
+                120px 25px 80px;
         }
 
 
@@ -265,84 +231,73 @@
         }
 
 
-        .tag {
-
+        .hero-tag {
             display: inline-block;
 
-            padding: 9px 16px;
-
-            margin-bottom: 25px;
-
-            color: #00e5ff;
+            padding:
+                10px 18px;
 
             border:
                 1px solid
-                rgba(0, 229, 255, 0.4);
+                rgba(85, 207, 255, 0.55);
 
-            background:
-                rgba(0, 229, 255, 0.05);
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
-            font-size: 12px;
+            color:
+                #7ee5ff;
 
             letter-spacing: 3px;
 
+            font-size: 0.75rem;
+
+            margin-bottom: 25px;
+
+            background:
+                rgba(85, 207, 255, 0.08);
         }
 
 
         .hero h1 {
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
             font-size:
-                clamp(45px, 8vw, 96px);
-
-            line-height: 1;
-
-            letter-spacing: 4px;
-
-            margin-bottom: 25px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    #00e5ff,
-                    #8c6dff
+                clamp(
+                    3rem,
+                    10vw,
+                    7rem
                 );
 
-            -webkit-background-clip: text;
+            line-height: 0.9;
 
-            -webkit-text-fill-color:
-                transparent;
+            letter-spacing: 8px;
 
+            text-transform: uppercase;
+
+            text-shadow:
+                0 0 20px
+                rgba(85, 207, 255, 0.35);
+        }
+
+
+        .hero h1 span {
+            color:
+                #55cfff;
         }
 
 
         .hero p {
+            max-width: 700px;
 
-            max-width: 800px;
+            margin:
+                30px auto;
 
-            margin: auto;
+            color:
+                #aebed4;
 
-            color: #a8bac8;
+            font-size:
+                1.05rem;
 
-            font-size: 21px;
-
-            line-height: 1.5;
-
+            line-height: 1.8;
         }
 
 
         .hero-buttons {
-
-            margin-top: 35px;
-
             display: flex;
 
             justify-content: center;
@@ -351,195 +306,105 @@
 
             flex-wrap: wrap;
 
+            margin-top: 30px;
         }
 
 
-        .btn {
-
-            padding: 14px 25px;
-
-            border:
-                1px solid #00e5ff;
-
-            color: #00e5ff;
+        .button {
+            padding:
+                15px 25px;
 
             text-decoration: none;
 
-            background:
-                rgba(0, 229, 255, 0.04);
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
-            font-size: 12px;
-
-            letter-spacing: 1px;
-
-            transition: 0.3s;
-
-        }
-
-
-        .btn:hover {
-
-            background: #00e5ff;
-
-            color: #041019;
-
-            box-shadow:
-                0 0 30px
-                rgba(0, 229, 255, 0.45);
-
-            transform:
-                translateY(-3px);
-
-        }
-
-
-        /* =========================
-           ESTATÍSTICAS
-        ========================== */
-
-        .stats {
-
-            padding:
-                10px 8% 80px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(190px, 1fr)
-                );
-
-            gap: 20px;
-
-        }
-
-
-        .stat {
-
-            padding: 25px;
-
-            text-align: center;
-
-            background:
-                rgba(12, 20, 43, 0.75);
+            font-weight: 800;
 
             border:
                 1px solid
-                rgba(0, 229, 255, 0.16);
+                #55cfff;
 
-            border-radius: 14px;
+            color:
+                #55cfff;
 
-            transition: 0.3s;
-
+            transition:
+                0.3s;
         }
 
 
-        .stat:hover {
+        .button:hover {
+            background:
+                #55cfff;
 
-            transform:
-                translateY(-5px);
+            color:
+                #05070f;
 
-            border-color:
-                rgba(0, 229, 255, 0.5);
-
+            box-shadow:
+                0 0 30px
+                rgba(85, 207, 255, 0.45);
         }
 
 
-        .stat h3 {
+        /* ========================================
+           CONTEÚDO
+        ======================================== */
 
-            color: #00e5ff;
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
-            font-size: 24px;
-
+        main {
+            width: 100%;
         }
 
-
-        .stat p {
-
-            margin-top: 8px;
-
-            color: #91a7b6;
-
-            font-size: 17px;
-
-        }
-
-
-        /* =========================
-           SEÇÕES
-        ========================== */
 
         section {
+            max-width: 1250px;
+
+            margin: auto;
 
             padding:
-                100px 8%;
-
+                100px 30px;
         }
 
 
-        .section-label {
+        .section-tag {
+            color:
+                #55cfff;
 
-            color: #00e5ff;
+            font-size: 0.8rem;
 
-            font-family:
-                "Orbitron",
-                sans-serif;
+            letter-spacing: 3px;
 
-            font-size: 12px;
-
-            letter-spacing: 4px;
+            text-transform: uppercase;
 
             margin-bottom: 15px;
-
         }
 
 
         .section-title {
-
-            color: white;
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
             font-size:
-                clamp(32px, 5vw, 56px);
+                clamp(
+                    2rem,
+                    5vw,
+                    4rem
+                );
 
             margin-bottom: 20px;
-
         }
 
 
         .section-description {
+            color:
+                #aebed4;
 
-            max-width: 950px;
+            max-width: 850px;
 
-            color: #a7bbc7;
+            line-height: 1.8;
 
-            font-size: 20px;
-
-            line-height: 1.55;
-
-            margin-bottom: 45px;
-
+            margin-bottom: 50px;
         }
 
 
-        /* =========================
+        /* ========================================
            CARDS
-        ========================== */
+        ======================================== */
 
-        .grid {
-
+        .cards {
             display: grid;
 
             grid-template-columns:
@@ -549,38 +414,37 @@
                 );
 
             gap: 22px;
-
         }
 
 
         .card {
-
-            padding: 28px;
-
             background:
                 linear-gradient(
                     145deg,
-                    rgba(18, 31, 65, 0.9),
-                    rgba(6, 11, 27, 0.95)
+                    rgba(20, 29, 50, 0.9),
+                    rgba(8, 12, 24, 0.9)
                 );
 
             border:
                 1px solid
-                rgba(0, 229, 255, 0.15);
+                rgba(100, 180, 255, 0.15);
 
-            border-radius: 14px;
+            padding:
+                28px;
 
-            transition: 0.35s;
+            border-radius:
+                16px;
+
+            transition:
+                0.35s;
 
             position: relative;
 
             overflow: hidden;
-
         }
 
 
         .card::before {
-
             content: "";
 
             position: absolute;
@@ -589,35 +453,30 @@
             left: 0;
 
             width: 100%;
-            height: 2px;
+            height: 3px;
 
             background:
                 linear-gradient(
                     90deg,
                     transparent,
-                    #00e5ff,
+                    #55cfff,
                     transparent
                 );
 
             opacity: 0;
-
-            transition: 0.3s;
-
         }
 
 
         .card:hover {
-
             transform:
                 translateY(-8px);
 
             border-color:
-                rgba(0, 229, 255, 0.5);
+                rgba(85, 207, 255, 0.6);
 
             box-shadow:
-                0 20px 45px
+                0 15px 40px
                 rgba(0, 0, 0, 0.35);
-
         }
 
 
@@ -626,597 +485,506 @@
         }
 
 
-        .card-icon {
-
-            font-size: 35px;
-
-            margin-bottom: 15px;
-
-        }
-
-
         .card h3 {
+            color:
+                #ffffff;
 
-            color: white;
+            margin-bottom:
+                15px;
 
-            font-family:
-                "Orbitron",
-                sans-serif;
-
-            font-size: 18px;
-
-            margin-bottom: 12px;
-
+            font-size:
+                1.2rem;
         }
 
 
         .card p {
+            color:
+                #aebed4;
 
-            color: #a5b7c4;
+            line-height:
+                1.7;
 
-            font-size: 18px;
-
-            line-height: 1.5;
-
+            font-size:
+                0.95rem;
         }
 
 
-        /* =========================
-           QUADRO DE DESTAQUE
-        ========================== */
+        /* ========================================
+           QUADROS DE DESTAQUE
+        ======================================== */
 
-        .highlight {
+        .info-box {
+            margin-top:
+                35px;
 
-            margin-top: 35px;
-
-            padding: 30px;
+            padding:
+                30px;
 
             background:
-                rgba(0, 229, 255, 0.05);
+                rgba(85, 207, 255, 0.06);
 
             border-left:
-                3px solid #00e5ff;
+                4px solid
+                #55cfff;
 
+            border-radius:
+                10px;
         }
 
 
-        .highlight h3 {
+        .info-box h3 {
+            color:
+                #55cfff;
 
-            color: #00e5ff;
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
-            margin-bottom: 12px;
-
+            margin-bottom:
+                12px;
         }
 
 
-        .highlight p {
+        .info-box p {
+            color:
+                #c4d1e5;
 
-            color: #b6c8d2;
-
-            font-size: 18px;
-
-            line-height: 1.6;
-
+            line-height:
+                1.8;
         }
 
 
-        /* =========================
-           CAIXAS DE IMAGEM
-        ========================== */
+        /* ========================================
+           IMAGENS ILUSTRATIVAS
+        ======================================== */
 
-        .image-box {
+        .visual-box {
+            margin-top:
+                45px;
 
-            margin-top: 40px;
+            padding:
+                35px;
+
+            border-radius:
+                20px;
 
             background:
-                rgba(9, 16, 35, 0.9);
+                linear-gradient(
+                    135deg,
+                    rgba(40, 90, 180, 0.18),
+                    rgba(10, 15, 30, 0.8)
+                );
 
             border:
                 1px solid
-                rgba(0, 229, 255, 0.18);
+                rgba(85, 207, 255, 0.2);
 
-            border-radius: 18px;
-
-            overflow: hidden;
-
-            transition: 0.35s;
-
+            text-align:
+                center;
         }
 
 
-        .image-box:hover {
+        .visual-title {
+            font-size:
+                1.4rem;
 
-            border-color:
-                rgba(0, 229, 255, 0.55);
+            color:
+                #ffffff;
 
-            box-shadow:
-                0 0 35px
-                rgba(0, 229, 255, 0.1);
-
+            margin-bottom:
+                20px;
         }
 
 
-        .image-box img {
-
+        .spectrum {
             width: 100%;
 
-            max-height: 500px;
+            height: 55px;
 
-            object-fit: contain;
-
-            display: block;
-
-            background: #ffffff;
-
-        }
-
-
-        .image-caption {
-
-            padding: 20px 25px;
-
-        }
-
-
-        .image-caption h3 {
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
-            color: #00e5ff;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .image-caption p {
-
-            color: #a7bac7;
-
-            font-size: 17px;
-
-            line-height: 1.5;
-
-        }
-
-
-        /* =========================
-           DIAGRAMA DE CORES
-        ========================== */
-
-        .color-spectrum {
-
-            margin-top: 40px;
-
-            padding: 35px;
-
-            background:
-                rgba(10, 18, 38, 0.9);
-
-            border:
-                1px solid
-                rgba(0, 229, 255, 0.18);
-
-            border-radius: 16px;
-
-        }
-
-
-        .spectrum-bar {
-
-            height: 70px;
-
-            border-radius: 10px;
-
-            margin:
-                25px 0 15px;
+            border-radius:
+                50px;
 
             background:
                 linear-gradient(
                     90deg,
-                    #6f00ff,
-                    #3b00ff,
-                    #0066ff,
-                    #00d5ff,
-                    #00ff95,
-                    #e5ff00,
-                    #ff8c00,
+                    #6b00ff,
+                    #003cff,
+                    #00c8ff,
+                    #00ff80,
+                    #ffff00,
+                    #ff7b00,
                     #ff0000
                 );
 
             box-shadow:
-                0 0 30px
-                rgba(0, 150, 255, 0.35);
-
+                0 0 35px
+                rgba(85, 207, 255, 0.25);
         }
 
 
-        .spectrum-labels {
+        /* ========================================
+           LUZ
+        ======================================== */
 
+        #luz {
+            scroll-margin-top:
+                90px;
+        }
+
+
+        /* ========================================
+           FIBRA ÓPTICA
+        ======================================== */
+
+        #fibra {
+            scroll-margin-top:
+                90px;
+        }
+
+
+        /* ========================================
+           CORES
+        ======================================== */
+
+        #cores {
+            scroll-margin-top:
+                90px;
+        }
+
+
+        .rgb {
             display: flex;
 
-            justify-content: space-between;
+            justify-content: center;
 
-            color: #b5c5ce;
+            align-items: center;
 
-            font-size: 16px;
+            gap: 0;
 
+            margin-top:
+                30px;
+
+            min-height:
+                250px;
         }
 
 
-        /* =========================
-           TABELAS
-        ========================== */
+        .rgb-circle {
+            width: 180px;
 
-        .comparison {
+            height: 180px;
 
-            margin-top: 35px;
-
-            overflow-x: auto;
-
-        }
-
-
-        table {
-
-            width: 100%;
-
-            border-collapse: collapse;
-
-            background:
-                rgba(10, 18, 38, 0.8);
-
-        }
-
-
-        th {
-
-            background:
-                rgba(0, 229, 255, 0.12);
-
-            color: #00e5ff;
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
-        }
-
-
-        th,
-        td {
-
-            padding: 17px;
-
-            text-align: left;
-
-            border-bottom:
-                1px solid
-                rgba(255, 255, 255, 0.08);
-
-        }
-
-
-        td {
-
-            color: #b2c3cc;
-
-            font-size: 17px;
-
-        }
-
-
-        /* =========================
-           FIBRA
-        ========================== */
-
-        .fiber-box {
-
-            padding: 35px;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(0, 229, 255, 0.14),
-                    rgba(7, 13, 29, 0.95)
-                );
+            border-radius:
+                50%;
 
             border:
-                1px solid
-                rgba(0, 229, 255, 0.2);
+                2px solid
+                rgba(255, 255, 255, 0.25);
 
-            border-radius: 16px;
+            margin-left:
+                -35px;
 
+            mix-blend-mode:
+                screen;
         }
 
 
-        .fiber-line {
+        .rgb-circle:first-child {
+            margin-left: 0;
+        }
 
-            height: 7px;
 
-            margin: 30px 0;
+        .red {
+            background:
+                rgba(255, 50, 50, 0.55);
+        }
 
-            border-radius: 20px;
+
+        .green {
+            background:
+                rgba(50, 255, 120, 0.55);
+        }
+
+
+        .blue {
+            background:
+                rgba(50, 120, 255, 0.55);
+        }
+
+
+        /* ========================================
+           ESPELHOS
+        ======================================== */
+
+        #espelhos {
+            scroll-margin-top:
+                90px;
+        }
+
+
+        .mirror-diagram {
+            margin-top:
+                30px;
+
+            min-height:
+                280px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            gap:
+                30px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .ray {
+            width: 220px;
+
+            height: 3px;
+
+            background:
+                #55cfff;
+
+            box-shadow:
+                0 0 15px
+                #55cfff;
+
+            transform:
+                rotate(-25deg);
+        }
+
+
+        .mirror {
+            width: 8px;
+
+            height: 230px;
 
             background:
                 linear-gradient(
-                    90deg,
-                    #00e5ff,
-                    white,
-                    #00e5ff,
-                    #7d5cff
+                    #ffffff,
+                    #8bc7ff,
+                    #ffffff
                 );
 
             box-shadow:
-                0 0 25px
-                #00e5ff;
-
-            animation:
-                pulse 2s infinite;
-
+                0 0 30px
+                rgba(255, 255, 255, 0.5);
         }
 
 
-        @keyframes pulse {
+        /* ========================================
+           OLHO HUMANO
+        ======================================== */
 
-            0% {
-                opacity: 0.55;
-                transform: scaleX(0.96);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scaleX(1);
-            }
-
-            100% {
-                opacity: 0.55;
-                transform: scaleX(0.96);
-            }
-
+        #olho {
+            scroll-margin-top:
+                90px;
         }
 
 
-        /* =========================
-           TRIONDA
-        ========================== */
+        .eye-diagram {
+            width:
+                min(500px, 100%);
 
-        .trionda {
+            height:
+                250px;
+
+            margin:
+                40px auto 0;
+
+            border-radius:
+                200px;
 
             background:
                 radial-gradient(
-                    circle at 50% 0%,
-                    rgba(123, 97, 255, 0.15),
-                    transparent 45%
+                    circle at 28% 50%,
+                    #05070f 0 8%,
+                    #3c6f9c 9% 14%,
+                    #eaf3ff 15% 18%,
+                    #111a2d 19% 100%
                 );
 
-            border-top:
-                1px solid
-                rgba(123, 97, 255, 0.2);
-
-        }
-
-
-        .trionda span {
-            color: #ffd35d;
-        }
-
-
-        .tech-list {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(220px, 1fr)
-                );
-
-            gap: 20px;
-
-        }
-
-
-        .tech {
-
-            padding: 25px;
-
-            background:
-                rgba(17, 16, 40, 0.88);
-
             border:
-                1px solid
-                rgba(140, 109, 255, 0.25);
-
-            border-radius: 14px;
-
-            transition: 0.3s;
-
-        }
-
-
-        .tech:hover {
-
-            transform:
-                translateY(-6px);
-
-            border-color:
-                rgba(188, 166, 255, 0.7);
-
-        }
-
-
-        .tech strong {
-
-            display: block;
-
-            color: #bca6ff;
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
-            margin-bottom: 10px;
-
-        }
-
-
-        .tech p {
-
-            color: #adb8c9;
-
-            font-size: 17px;
-
-            line-height: 1.5;
-
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-
-            padding: 60px 8%;
-
-            text-align: center;
-
-            background: #03050d;
-
-            border-top:
-                1px solid
-                rgba(0, 229, 255, 0.15);
-
-        }
-
-
-        footer h2 {
-
-            color: #00e5ff;
-
-            font-family:
-                "Orbitron",
-                sans-serif;
-
-            margin-bottom: 15px;
-
-        }
-
-
-        footer p {
-
-            color: #80939f;
-
-            font-size: 17px;
-
-        }
-
-
-        /* =========================
-           BOTÃO TOPO
-        ========================== */
-
-        #topBtn {
-
-            position: fixed;
-
-            right: 20px;
-
-            bottom: 20px;
-
-            width: 50px;
-
-            height: 50px;
-
-            display: none;
-
-            border-radius: 50%;
-
-            border:
-                1px solid #00e5ff;
-
-            background: #07101f;
-
-            color: #00e5ff;
-
-            font-size: 22px;
-
-            cursor: pointer;
-
-            z-index: 1000;
-
-            transition: 0.3s;
-
-        }
-
-
-        #topBtn:hover {
-
-            background: #00e5ff;
-
-            color: #041019;
+                3px solid
+                rgba(85, 207, 255, 0.55);
 
             box-shadow:
-                0 0 25px
-                rgba(0, 229, 255, 0.5);
-
+                inset 0 0 40px
+                rgba(85, 207, 255, 0.15),
+                0 0 40px
+                rgba(85, 207, 255, 0.2);
         }
 
 
-        /* =========================
+        /* ========================================
+           TRIONDA
+        ======================================== */
+
+        #trionda {
+            scroll-margin-top:
+                90px;
+        }
+
+
+        .ball {
+            width: 240px;
+
+            height: 240px;
+
+            margin:
+                40px auto;
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #ffffff,
+                    #d7e2ea 55%,
+                    #7b8a99
+                );
+
+            box-shadow:
+                inset -25px -25px 45px
+                rgba(0, 0, 0, 0.35),
+                0 0 40px
+                rgba(85, 207, 255, 0.25);
+
+            position:
+                relative;
+        }
+
+
+        .ball::before {
+            content:
+                "TRIONDA";
+
+            position:
+                absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            color:
+                #111827;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                3px;
+
+            font-size:
+                1.2rem;
+        }
+
+
+        /* ========================================
+           RODAPÉ
+        ======================================== */
+
+        footer {
+            border-top:
+                1px solid
+                rgba(100, 180, 255, 0.15);
+
+            padding:
+                45px 20px;
+
+            text-align:
+                center;
+
+            color:
+                #8090a8;
+        }
+
+
+        /* ========================================
            RESPONSIVIDADE
-        ========================== */
+        ======================================== */
 
         @media (max-width: 850px) {
 
-            header {
+            .navbar {
+                flex-direction:
+                    column;
 
-                flex-direction: column;
-
-                padding: 18px 5%;
-
+                gap:
+                    20px;
             }
 
 
             nav {
-                gap: 12px;
-            }
+                justify-content:
+                    center;
 
-
-            nav a {
-                font-size: 15px;
-            }
-
-
-            section {
-                padding: 75px 7%;
+                gap:
+                    15px;
             }
 
 
             .hero {
-                min-height: 80vh;
+                padding-top:
+                    160px;
             }
 
 
-            .hero p,
-            .section-description {
-                font-size: 18px;
-            }
+            .rgb-circle {
+                width:
+                    120px;
 
+                height:
+                    120px;
 
-            .spectrum-labels {
-                font-size: 12px;
+                margin-left:
+                    -25px;
             }
 
         }
 
+
+        @media (max-width: 500px) {
+
+            section {
+                padding:
+                    75px 20px;
+            }
+
+
+            nav a {
+                font-size:
+                    0.75rem;
+            }
+
+
+            .hero h1 {
+                letter-spacing:
+                    4px;
+            }
+
+
+            .rgb-circle {
+                width:
+                    90px;
+
+                height:
+                    90px;
+
+                margin-left:
+                    -15px;
+            }
+
+        }
 
     </style>
 
@@ -1225,60 +993,129 @@
 
 <body>
 
+    <div class="grid-bg"></div>
 
-    <!-- =========================
+
+    <!-- ====================================
          CABEÇALHO
-    ========================== -->
+    ===================================== -->
 
     <header>
 
-        <div class="logo">
-            OPTIC<span>//</span>X
+        <div class="navbar">
+
+            <a
+                href="#inicio"
+                class="logo"
+            >
+                OPTIC<span>/X</span>
+            </a>
+
+
+            <nav>
+
+                <a href="#luz">
+                    Luz
+                </a>
+
+                <a href="#fibra">
+                    Fibra
+                </a>
+
+                <a href="#cores">
+                    Cores
+                </a>
+
+                <a href="#espelhos">
+                    Espelhos
+                </a>
+
+                <a href="#olho">
+                    Olho
+                </a>
+
+                <a href="#trionda">
+                    Trionda
+                </a>
+
+            </nav>
+
         </div>
-
-
-        <nav>
-
-            <a href="#luz">Luz</a>
-
-            <a href="#fibra">Fibra</a>
-
-            <a href="#cores">Cores</a>
-
-            <a href="#espelhos">Espelhos</a>
-
-            <a href="#olho">Olho</a>
-
-            <a href="#trionda">Trionda</a>
-
-        </nav>
 
     </header>
 
 
+    <!-- ====================================
+         CONTEÚDO PRINCIPAL
+    ===================================== -->
 
     <main>
 
 
-        <!-- =========================
+        <!-- ====================================
              HERO
-        ========================== -->
+        ===================================== -->
 
-        <section class="hero">
+        <section
+            class="hero"
+            id="inicio"
+        >
 
             <div class="hero-content">
 
-                <div class="tag">
+                <div class="hero-tag">
+
                     FÍSICA • ÓPTICA • TECNOLOGIA
+
                 </div>
 
 
                 <h1>
-                    A CIÊNCIA DA LUZ
+
+                    A CIÊNCIA
+                    <br>
+
+                    DA <span>LUZ</span>
+
                 </h1>
 
 
                 <p>
 
-                    Uma viagem pela óptica, pelas cores,
-                    p
+                    Uma viagem pela óptica, pela formação
+                    das imagens, pelas cores, pelos espelhos,
+                    pelo funcionamento do olho humano e pelas
+                    aplicações da ciência no mundo moderno.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#luz"
+                        class="button"
+                    >
+                        EXPLORAR
+                    </a>
+
+
+                    <a
+                        href="#trionda"
+                        class="button"
+                    >
+                        TECNOLOGIA
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================
+             LUZ E FORMAÇÃO DE IMAGENS
+        ===================================== -->
+
+        <section id="luz">
