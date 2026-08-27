@@ -71,7 +71,7 @@
         }
 
         /* ========================================
-           CABEÇALHO
+           CABEÇALHO E NAVEGAÇÃO
         ======================================== */
 
         header {
@@ -120,6 +120,7 @@
             font-size: 0.9rem;
             transition: 0.3s;
             position: relative;
+            cursor: pointer;
         }
 
         nav a::after {
@@ -204,6 +205,7 @@
             border: 1px solid #55cfff;
             color: #55cfff;
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .button:hover {
@@ -213,7 +215,7 @@
         }
 
         /* ========================================
-           CONTEÚDO
+           CONTEÚDO E SEÇÕES DA PÁGINA
         ======================================== */
 
         main {
@@ -224,6 +226,8 @@
             max-width: 1250px;
             margin: auto;
             padding: 100px 30px;
+            /* Garante o compensamento da altura do menu fixo ao rolar */
+            scroll-margin-top: 90px;
         }
 
         .section-tag {
@@ -300,61 +304,8 @@
         }
 
         /* ========================================
-           QUADROS DE DESTAQUE
+           ILUSTRAÇÕES E DIAGRAMAS VISUAIS
         ======================================== */
-
-        .info-box {
-            margin-top: 35px;
-            padding: 30px;
-            background: rgba(85, 207, 255, 0.06);
-            border-left: 4px solid #55cfff;
-            border-radius: 10px;
-        }
-
-        .info-box h3 {
-            color: #55cfff;
-            margin-bottom: 12px;
-        }
-
-        .info-box p {
-            color: #c4d1e5;
-            line-height: 1.8;
-        }
-
-        /* ========================================
-           IMAGENS ILUSTRATIVAS
-        ======================================== */
-
-        .visual-box {
-            margin-top: 45px;
-            padding: 35px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, rgba(40, 90, 180, 0.18), rgba(10, 15, 30, 0.8));
-            border: 1px solid rgba(85, 207, 255, 0.2);
-            text-align: center;
-        }
-
-        .visual-title {
-            font-size: 1.4rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        .spectrum {
-            width: 100%;
-            height: 55px;
-            border-radius: 50px;
-            background: linear-gradient(90deg, #6b00ff, #003cff, #00c8ff, #00ff80, #ffff00, #ff7b00, #ff0000);
-            box-shadow: 0 0 35px rgba(85, 207, 255, 0.25);
-        }
-
-        /* ========================================
-           SEÇÕES DE ANCORAGEM
-        ======================================== */
-
-        #luz, #fibra, #cores, #espelhos, #olho, #trionda {
-            scroll-margin-top: 90px;
-        }
 
         .rgb {
             display: flex;
@@ -479,7 +430,7 @@
                 <a href="#fibra">Fibra</a>
                 <a href="#cores">Cores</a>
                 <a href="#espelhos">Espelhos</a>
-                <a href="#olho">Olho</a>
+                <a href="#olho">Olho Humano</a>
                 <a href="#trionda">Trionda</a>
             </nav>
         </div>
@@ -536,6 +487,9 @@
         <section id="cores">
             <div class="section-tag">Espectro</div>
             <h2 class="section-title">Síntese de Cores</h2>
+            <p class="section-description">
+                A mistura das cores-luz primárias (Vermelho, Verde e Azul) dá origem ao sistema RGB utilizado em telas e tecnologias de exibição.
+            </p>
             <div class="rgb">
                 <div class="rgb-circle red"></div>
                 <div class="rgb-circle green"></div>
@@ -547,6 +501,9 @@
         <section id="espelhos">
             <div class="section-tag">Reflexão</div>
             <h2 class="section-title">Espelhos e Reflexão</h2>
+            <p class="section-description">
+                A luz é refletida ao atingir superfícies polidas, mantendo ângulos iguais entre a incidência e a reflexão.
+            </p>
             <div class="mirror-diagram">
                 <div class="ray"></div>
                 <div class="mirror"></div>
@@ -557,6 +514,9 @@
         <section id="olho">
             <div class="section-tag">Biologia</div>
             <h2 class="section-title">O Olho Humano</h2>
+            <p class="section-description">
+                O olho atua como um sistema óptico natural complexo, projetando imagens invertidas na retina através do cristalino.
+            </p>
             <div class="eye-diagram"></div>
         </section>
 
@@ -564,6 +524,9 @@
         <section id="trionda">
             <div class="section-tag">Futuro</div>
             <h2 class="section-title">Tecnologia Trionda</h2>
+            <p class="section-description">
+                Avanços tecnológicos que combinam diferentes frequências de onda para aplicações ópticas e científicas de ponta.
+            </p>
             <div class="ball"></div>
         </section>
 
