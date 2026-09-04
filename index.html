@@ -6,9 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Projeto Integrador — Física e o Mundo</title>
+    <title>Física e o Mundo — Projeto Integrador</title>
 
     <style>
+
+        /* =====================================================
+           RESET
+        ====================================================== */
 
         * {
             margin: 0;
@@ -16,200 +20,486 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #050816;
-            color: white;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #172b58 0%,
+                    #080d1c 45%,
+                    #03050b 100%
+                );
+            color: #ffffff;
             min-height: 100vh;
         }
 
+
+        /* =====================================================
+           CABEÇALHO
+        ====================================================== */
+
         header {
-            padding: 25px;
             text-align: center;
-            background: #0b1026;
-            border-bottom: 1px solid #26304f;
+            padding: 60px 20px;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(18, 35, 75, 0.98),
+                    rgba(5, 8, 19, 0.98)
+                );
+            border-bottom: 1px solid #30446f;
         }
 
         header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+            font-size: 48px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
         header p {
-            color: #aeb8d4;
+            color: #bac7e3;
+            font-size: 18px;
+            line-height: 1.6;
         }
 
-        /* ===============================
+
+        /* =====================================================
            MENU
-        =============================== */
+        ====================================================== */
 
         .menu {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             gap: 10px;
-            padding: 20px;
-            background: #080d20;
+
+            padding: 18px;
+
+            background: rgba(5, 8, 19, 0.95);
+            border-bottom: 1px solid #2b3d62;
+
+            backdrop-filter: blur(12px);
         }
 
         .menu button {
             padding: 12px 18px;
-            border: 1px solid #354064;
-            border-radius: 10px;
-            background: #111936;
+
+            border: 1px solid #3a4e78;
+            border-radius: 12px;
+
+            background: #101a35;
             color: white;
+
+            font-size: 14px;
+            font-weight: bold;
+
             cursor: pointer;
-            transition: 0.3s;
+
+            transition:
+                background 0.3s,
+                transform 0.3s,
+                border-color 0.3s;
         }
 
         .menu button:hover {
-            transform: translateY(-2px);
-            background: #18234b;
+            background: #1a2b53;
+            border-color: #617ba9;
+            transform: translateY(-3px);
         }
 
-        /* ===============================
-           ABAS
-        =============================== */
+
+        /* =====================================================
+           PAINÉIS
+        ====================================================== */
 
         .tab-panel {
             display: none;
-            max-width: 1200px;
+
+            max-width: 1250px;
             margin: auto;
-            padding: 50px 25px;
+
+            padding: 65px 25px;
         }
 
         .tab-panel.active {
             display: block;
         }
 
-        .section-title {
-            font-size: 38px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
 
-        .section-title span {
-            margin-left: 8px;
+        /* =====================================================
+           TÍTULOS
+        ====================================================== */
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 18px;
         }
 
         .section-description {
-            max-width: 800px;
-            margin: 0 auto 40px;
+            max-width: 900px;
+
+            margin:
+                0 auto 45px;
+
             text-align: center;
-            color: #b8c1d9;
-            line-height: 1.7;
+
+            color: #b8c5df;
+
+            line-height: 1.8;
+
             font-size: 17px;
         }
 
-        /* ===============================
-           CONTEÚDO
-        =============================== */
+
+        /* =====================================================
+           CAIXAS
+        ====================================================== */
 
         .content-box {
-            background: #0c132d;
-            border: 1px solid #283557;
-            border-radius: 18px;
-            padding: 30px;
-            margin-bottom: 25px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(16, 27, 55, 0.98),
+                    rgba(9, 15, 32, 0.98)
+                );
+
+            border: 1px solid #2c416b;
+
+            border-radius: 20px;
+
+            padding: 32px;
+
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.25);
         }
 
         .content-box h3 {
-            margin-bottom: 15px;
-            font-size: 24px;
+            font-size: 27px;
+            margin-bottom: 16px;
         }
 
         .content-box p {
-            color: #c5cce0;
-            line-height: 1.8;
+            color: #c2cee2;
+            font-size: 16px;
+            line-height: 1.9;
         }
 
-        /* ===============================
+        .content-box p + p {
+            margin-top: 18px;
+        }
+
+        .content-box strong {
+            color: #ffffff;
+        }
+
+
+        /* =====================================================
+           GRID
+        ====================================================== */
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            padding: 27px;
+
+            background: #0c152d;
+
+            border:
+                1px solid #2b3e65;
+
+            border-radius: 18px;
+
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            border-color: #526c9b;
+        }
+
+        .info-card h3 {
+            font-size: 22px;
+            margin-bottom: 13px;
+        }
+
+        .info-card p {
+            color: #b7c3da;
+            line-height: 1.75;
+        }
+
+
+        /* =====================================================
+           DIAGRAMAS
+        ====================================================== */
+
+        .visual-box {
+            padding: 28px;
+
+            margin:
+                30px 0;
+
+            background: #050914;
+
+            border:
+                1px solid #2c4067;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            overflow: hidden;
+        }
+
+        .diagram {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+        .visual-caption {
+            margin-top: 18px;
+
+            color: #98a8c5;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           LISTAS
+        ====================================================== */
+
+        .content-list {
+            margin-top: 20px;
+            padding-left: 25px;
+        }
+
+        .content-list li {
+            margin-bottom: 12px;
+            color: #c1cce0;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
            VÍDEOS
-        =============================== */
+        ====================================================== */
 
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
             gap: 30px;
         }
 
         .video-card {
-            background: #0c132d;
-            border: 1px solid #2b385c;
+            background: #0c152d;
+
+            border:
+                1px solid #2d4169;
+
             border-radius: 20px;
+
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-            transition: transform 0.3s ease;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.35);
+
+            transition: 0.3s;
         }
 
         .video-card:hover {
             transform: translateY(-5px);
+            border-color: #5a73a2;
         }
 
         .video-container {
             width: 100%;
             background: #000;
-            overflow: hidden;
         }
 
         .video-container video {
             display: block;
+
             width: 100%;
             height: auto;
+
             aspect-ratio: 16 / 9;
+
             object-fit: contain;
+
             background: #000;
         }
 
         .video-info {
-            padding: 25px;
+            padding: 27px;
         }
 
         .video-number {
+            margin-bottom: 10px;
+
             font-size: 13px;
             font-weight: bold;
+
             letter-spacing: 2px;
-            margin-bottom: 10px;
+
+            color: #91a9d3;
         }
 
         .video-info h3 {
+            margin-bottom: 12px;
             font-size: 24px;
-            margin-bottom: 10px;
         }
 
         .video-info p {
-            color: #aeb8d4;
-            line-height: 1.6;
+            color: #aebbd3;
+            line-height: 1.7;
         }
 
-        /* ===============================
+
+        /* =====================================================
+           DESTAQUE DA ABA DE VÍDEOS
+        ====================================================== */
+
+        .video-intro {
+            padding: 25px;
+
+            margin-bottom: 35px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #101d3c,
+                    #091126
+                );
+
+            border:
+                1px solid #334c7a;
+
+            border-radius: 18px;
+
+            text-align: center;
+        }
+
+        .video-intro h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .video-intro p {
+            color: #b6c2db;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
            RODAPÉ
-        =============================== */
+        ====================================================== */
 
         footer {
+            margin-top: 60px;
+
+            padding: 45px 20px;
+
             text-align: center;
-            padding: 35px;
-            margin-top: 40px;
-            background: #080d20;
-            color: #8e98b5;
+
+            background: #050914;
+
+            border-top:
+                1px solid #293b60;
+
+            color: #8796b4;
         }
 
-        /* ===============================
-           CELULAR
-        =============================== */
+        footer p {
+            margin: 8px;
+        }
 
-        @media (max-width: 800px) {
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ====================================================== */
+
+        @media (max-width: 850px) {
+
+            header h1 {
+                font-size: 34px;
+            }
+
+            .section-title {
+                font-size: 31px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
 
             .videos-grid {
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 30px;
+            .menu {
+                position: relative;
+            }
+
+            .menu button {
+                font-size: 13px;
+                padding: 10px 13px;
+            }
+
+            .tab-panel {
+                padding:
+                    45px 18px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            header {
+                padding: 45px 15px;
             }
 
             header h1 {
-                font-size: 25px;
+                font-size: 28px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            .content-box,
+            .info-card,
+            .video-info {
+                padding: 22px;
             }
 
         }
@@ -228,17 +518,20 @@
 
     <header>
 
-        <h1>🌌 Física e o Mundo</h1>
+        <h1>
+            🌌 Física e o Mundo
+        </h1>
 
         <p>
-            Projeto Integrador — Física e Óptica
+            Projeto Integrador — Física, Óptica e suas aplicações
         </p>
 
     </header>
 
 
+
     <!-- =====================================================
-         MENU
+         MENU PRINCIPAL
     ====================================================== -->
 
     <nav class="menu">
@@ -270,167 +563,1134 @@
     </nav>
 
 
+
     <!-- =====================================================
          ABA 1 — LUZ
     ====================================================== -->
 
-    <section class="tab-panel active" id="tab-1">
+    <section
+        class="tab-panel active"
+        id="tab-1">
 
         <h2 class="section-title">
-            💡 <span>Luz</span>
+            💡 Luz
         </h2>
 
         <p class="section-description">
-            A luz é uma forma de radiação eletromagnética
-            capaz de produzir a sensação visual.
+
+            A luz é um dos fenômenos mais importantes
+            estudados pela Física. Ela permite que possamos
+            enxergar o mundo ao nosso redor e está presente
+            em diversas tecnologias.
+
         </p>
+
 
         <div class="content-box">
 
-            <h3>O que é a luz?</h3>
+            <h3>
+                O que é a luz?
+            </h3>
 
             <p>
-                A luz pode se propagar pelo espaço e apresenta
-                diferentes propriedades físicas, como reflexão,
-                refração e dispersão.
+
+                A luz é uma forma de radiação eletromagnética.
+                Diferentemente de ondas mecânicas, ela consegue
+                se propagar pelo vácuo, não necessitando de um
+                meio material para viajar.
+
+            </p>
+
+            <p>
+
+                A região da radiação eletromagnética que pode
+                ser percebida pelo olho humano é chamada de
+                <strong>luz visível</strong>.
+
+            </p>
+
+            <p>
+
+                Na Óptica, estudamos o comportamento da luz
+                quando ela encontra diferentes materiais e
+                superfícies. Entre os fenômenos mais importantes
+                estão a reflexão, a refração, a absorção e a
+                dispersão.
+
             </p>
 
         </div>
 
+
+        <div class="visual-box">
+
+            <svg
+                class="diagram"
+                viewBox="0 0 900 320"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <rect
+                    width="900"
+                    height="320"
+                    rx="20"
+                    fill="#080d1c"/>
+
+                <circle
+                    cx="140"
+                    cy="160"
+                    r="75"
+                    fill="#f5d76e"/>
+
+                <text
+                    x="140"
+                    y="167"
+                    text-anchor="middle"
+                    font-size="22"
+                    fill="#111">
+                    FONTE
+                </text>
+
+                <line
+                    x1="215"
+                    y1="160"
+                    x2="700"
+                    y2="160"
+                    stroke="white"
+                    stroke-width="5"/>
+
+                <line
+                    x1="230"
+                    y1="130"
+                    x2="700"
+                    y2="130"
+                    stroke="#e6c95e"
+                    stroke-width="3"/>
+
+                <line
+                    x1="230"
+                    y1="190"
+                    x2="700"
+                    y2="190"
+                    stroke="#63b8e8"
+                    stroke-width="3"/>
+
+                <rect
+                    x="700"
+                    y="85"
+                    width="110"
+                    height="150"
+                    rx="12"
+                    fill="#1b2b4d"
+                    stroke="#7188b0"
+                    stroke-width="3"/>
+
+                <text
+                    x="755"
+                    y="168"
+                    text-anchor="middle"
+                    font-size="19"
+                    fill="white">
+                    OBJETO
+                </text>
+
+            </svg>
+
+            <p class="visual-caption">
+
+                Representação simplificada da luz viajando
+                de uma fonte luminosa até um objeto.
+
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <h3>
+                    ☀️ Fontes luminosas
+                </h3>
+
+                <p>
+
+                    São corpos que produzem e emitem luz.
+                    O Sol, as estrelas e uma lâmpada acesa
+                    são exemplos de fontes luminosas.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🌑 Corpos iluminados
+                </h3>
+
+                <p>
+
+                    Não produzem luz própria. Conseguimos
+                    enxergá-los porque eles recebem luz de
+                    uma fonte e refletem parte dela.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🔄 Reflexão
+                </h3>
+
+                <p>
+
+                    É o fenômeno em que a luz encontra uma
+                    superfície e retorna para o meio de onde
+                    veio.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    💧 Refração
+                </h3>
+
+                <p>
+
+                    Acontece quando a luz passa de um meio
+                    para outro e sua velocidade de propagação
+                    muda.
+
+                </p>
+
+            </div>
+
+        </div>
+
     </section>
+
 
 
     <!-- =====================================================
          ABA 2 — FIBRA ÓTICA
     ====================================================== -->
 
-    <section class="tab-panel" id="tab-2">
+    <section
+        class="tab-panel"
+        id="tab-2">
 
         <h2 class="section-title">
-            🔬 <span>Fibra Ótica</span>
+            🔬 Fibra Ótica
         </h2>
 
         <p class="section-description">
-            A fibra óptica utiliza a propagação da luz para
-            transmitir informações em alta velocidade.
+
+            A fibra óptica é uma tecnologia que utiliza
+            a propagação da luz para transmitir grandes
+            quantidades de informação.
+
         </p>
+
 
         <div class="content-box">
 
-            <h3>Como funciona?</h3>
+            <h3>
+                Como funciona?
+            </h3>
 
             <p>
-                A transmissão acontece principalmente por meio
-                do fenômeno da reflexão interna total.
+
+                Uma fibra óptica é composta principalmente
+                por um núcleo, uma casca e uma camada de
+                proteção externa.
+
+            </p>
+
+            <p>
+
+                A luz é mantida dentro do núcleo graças ao
+                fenômeno da <strong>reflexão interna total</strong>.
+                Dessa forma, o sinal luminoso consegue percorrer
+                grandes distâncias através da fibra.
+
+            </p>
+
+            <p>
+
+                Esse princípio é utilizado em redes de
+                comunicação, internet, telefonia e diversos
+                sistemas de transmissão de dados.
+
             </p>
 
         </div>
 
+
+        <div class="visual-box">
+
+            <svg
+                class="diagram"
+                viewBox="0 0 900 330"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <rect
+                    width="900"
+                    height="330"
+                    rx="20"
+                    fill="#080d1c"/>
+
+                <rect
+                    x="80"
+                    y="95"
+                    width="740"
+                    height="140"
+                    rx="70"
+                    fill="#253a60"/>
+
+                <rect
+                    x="80"
+                    y="125"
+                    width="740"
+                    height="80"
+                    rx="40"
+                    fill="#101b35"/>
+
+                <polyline
+                    points="
+                    100,165
+                    180,130
+                    260,200
+                    340,130
+                    420,200
+                    500,130
+                    580,200
+                    660,130
+                    740,200
+                    800,165"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="5"/>
+
+                <text
+                    x="450"
+                    y="55"
+                    text-anchor="middle"
+                    font-size="23"
+                    fill="white">
+                    REFLEXÃO INTERNA DA LUZ
+                </text>
+
+                <text
+                    x="450"
+                    y="285"
+                    text-anchor="middle"
+                    font-size="18"
+                    fill="#b9c7df">
+                    Núcleo da fibra óptica
+                </text>
+
+            </svg>
+
+            <p class="visual-caption">
+
+                A luz percorre o núcleo realizando sucessivas
+                reflexões internas.
+
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <h3>
+                    📡 Internet
+                </h3>
+
+                <p>
+
+                    Cabos de fibra óptica são fundamentais
+                    para redes de internet de alta velocidade
+                    e comunicação entre diferentes regiões.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    ⚡ Velocidade
+                </h3>
+
+                <p>
+
+                    A utilização da luz permite transportar
+                    grandes quantidades de dados rapidamente.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    📦 Núcleo
+                </h3>
+
+                <p>
+
+                    É a região central da fibra pela qual
+                    o sinal luminoso é conduzido.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🛡️ Casca
+                </h3>
+
+                <p>
+
+                    A casca envolve o núcleo e possui propriedades
+                    que ajudam a manter a luz confinada dentro
+                    da fibra.
+
+                </p>
+
+            </div>
+
+        </div>
+
     </section>
+
 
 
     <!-- =====================================================
          ABA 3 — CORES
     ====================================================== -->
 
-    <section class="tab-panel" id="tab-3">
+    <section
+        class="tab-panel"
+        id="tab-3">
 
         <h2 class="section-title">
-            🎨 <span>Cores</span>
+            🎨 Cores
         </h2>
 
         <p class="section-description">
-            As cores estão relacionadas à maneira como nossos
-            olhos e cérebro percebem diferentes frequências
-            da luz visível.
+
+            As cores fazem parte da luz visível e estão
+            relacionadas à maneira como diferentes comprimentos
+            de onda são percebidos pelo sistema visual humano.
+
         </p>
+
 
         <div class="content-box">
 
-            <h3>Espectro visível</h3>
+            <h3>
+                Como percebemos as cores?
+            </h3>
 
             <p>
-                A luz branca pode ser separada em diferentes
-                componentes, formando um espectro de cores.
+
+                Quando a luz incide sobre um objeto, parte
+                dessa luz pode ser absorvida e outra parte
+                pode ser refletida.
+
+            </p>
+
+            <p>
+
+                A luz refletida chega aos nossos olhos.
+                O cérebro interpreta essas informações e
+                produz a sensação visual que chamamos de cor.
+
+            </p>
+
+            <p>
+
+                A luz branca é formada pela combinação de
+                diferentes componentes da região visível
+                do espectro eletromagnético.
+
             </p>
 
         </div>
 
+
+        <div class="visual-box">
+
+            <svg
+                class="diagram"
+                viewBox="0 0 900 330"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <rect
+                    width="900"
+                    height="330"
+                    rx="20"
+                    fill="#080d1c"/>
+
+                <text
+                    x="450"
+                    y="55"
+                    text-anchor="middle"
+                    font-size="23"
+                    fill="white">
+                    ESPECTRO DA LUZ VISÍVEL
+                </text>
+
+                <rect
+                    x="100"
+                    y="120"
+                    width="100"
+                    height="100"
+                    fill="#e53935"/>
+
+                <rect
+                    x="200"
+                    y="120"
+                    width="100"
+                    height="100"
+                    fill="#ff8a00"/>
+
+                <rect
+                    x="300"
+                    y="120"
+                    width="100"
+                    height="100"
+                    fill="#f0d84e"/>
+
+                <rect
+                    x="400"
+                    y="120"
+                    width="100"
+                    height="100"
+                    fill="#48b95b"/>
+
+                <rect
+                    x="500"
+                    y="120"
+                    width="100"
+                    height="100"
+                    fill="#38a8dc"/>
+
+                <rect
+                    x="600"
+                    y="120"
+                    width="100"
+                    height="100"
+                    fill="#3d5dcc"/>
+
+                <rect
+                    x="700"
+                    y="120"
+                    width="100"
+                    height="100"
+                    fill="#914dcc"/>
+
+                <text
+                    x="450"
+                    y="270"
+                    text-anchor="middle"
+                    font-size="17"
+                    fill="#bac8df">
+                    Vermelho → Laranja → Amarelo → Verde →
+                    Azul → Violeta
+                </text>
+
+            </svg>
+
+            <p class="visual-caption">
+
+                Representação didática das principais regiões
+                percebidas da luz visível.
+
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <h3>
+                    🔴 Vermelho
+                </h3>
+
+                <p>
+
+                    Está associado a comprimentos de onda
+                    maiores dentro da faixa da luz visível.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🟡 Amarelo
+                </h3>
+
+                <p>
+
+                    É uma das regiões intermediárias do
+                    espectro visível.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🟢 Verde
+                </h3>
+
+                <p>
+
+                    É uma das regiões da luz visível às quais
+                    o sistema visual humano apresenta grande
+                    sensibilidade.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🟣 Violeta
+                </h3>
+
+                <p>
+
+                    Está associado a comprimentos de onda
+                    menores dentro da região visível.
+
+                </p>
+
+            </div>
+
+        </div>
+
     </section>
+
 
 
     <!-- =====================================================
          ABA 4 — ESPELHOS
     ====================================================== -->
 
-    <section class="tab-panel" id="tab-4">
+    <section
+        class="tab-panel"
+        id="tab-4">
 
         <h2 class="section-title">
-            🪞 <span>Espelhos</span>
+            🪞 Espelhos
         </h2>
 
         <p class="section-description">
-            Os espelhos são superfícies capazes de refletir
-            a luz e formar imagens.
+
+            Os espelhos são superfícies que refletem a luz
+            e permitem a formação de imagens.
+
         </p>
+
 
         <div class="content-box">
 
-            <h3>Tipos de espelhos</h3>
+            <h3>
+                Lei da reflexão
+            </h3>
 
             <p>
-                Podemos estudar espelhos planos, côncavos
-                e convexos.
+
+                Quando um raio de luz atinge uma superfície
+                refletora, ele pode retornar ao meio original.
+                Esse fenômeno é chamado de reflexão.
+
+            </p>
+
+            <p>
+
+                Na reflexão regular, podemos estabelecer uma
+                relação entre o raio incidente, a normal à
+                superfície e o raio refletido.
+
+            </p>
+
+            <p>
+
+                A lei da reflexão estabelece que o
+                <strong>ângulo de incidência é igual ao
+                ângulo de reflexão</strong>.
+
             </p>
 
         </div>
 
+
+        <div class="visual-box">
+
+            <svg
+                class="diagram"
+                viewBox="0 0 900 370"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <rect
+                    width="900"
+                    height="370"
+                    rx="20"
+                    fill="#080d1c"/>
+
+                <line
+                    x1="450"
+                    y1="70"
+                    x2="450"
+                    y2="315"
+                    stroke="#9baac3"
+                    stroke-width="8"/>
+
+                <line
+                    x1="120"
+                    y1="105"
+                    x2="450"
+                    y2="190"
+                    stroke="white"
+                    stroke-width="5"/>
+
+                <line
+                    x1="450"
+                    y1="190"
+                    x2="780"
+                    y2="105"
+                    stroke="white"
+                    stroke-width="5"/>
+
+                <line
+                    x1="450"
+                    y1="190"
+                    x2="450"
+                    y2="70"
+                    stroke="#647593"
+                    stroke-width="3"
+                    stroke-dasharray="10 10"/>
+
+                <text
+                    x="450"
+                    y="45"
+                    text-anchor="middle"
+                    font-size="23"
+                    fill="white">
+                    LEI DA REFLEXÃO
+                </text>
+
+                <text
+                    x="200"
+                    y="115"
+                    font-size="17"
+                    fill="#c0cce0">
+                    Raio incidente
+                </text>
+
+                <text
+                    x="565"
+                    y="115"
+                    font-size="17"
+                    fill="#c0cce0">
+                    Raio refletido
+                </text>
+
+                <text
+                    x="465"
+                    y="250"
+                    font-size="17"
+                    fill="#b7c4dc">
+                    Normal
+                </text>
+
+                <text
+                    x="365"
+                    y="210"
+                    font-size="17"
+                    fill="#b7c4dc">
+                    i
+                </text>
+
+                <text
+                    x="525"
+                    y="210"
+                    font-size="17"
+                    fill="#b7c4dc">
+                    r
+                </text>
+
+            </svg>
+
+            <p class="visual-caption">
+
+                O ângulo de incidência (i) é igual ao ângulo
+                de reflexão (r).
+
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <h3>
+                    ▭ Espelho plano
+                </h3>
+
+                <p>
+
+                    Possui uma superfície plana e produz uma
+                    imagem virtual com características de
+                    simetria em relação ao espelho.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    ◯ Espelho côncavo
+                </h3>
+
+                <p>
+
+                    Possui uma superfície refletora voltada
+                    para dentro. Dependendo da posição do
+                    objeto, pode produzir diferentes imagens.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    ◉ Espelho convexo
+                </h3>
+
+                <p>
+
+                    Possui uma superfície refletora voltada
+                    para fora e geralmente produz imagens
+                    virtuais, direitas e menores.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🚗 Aplicações
+                </h3>
+
+                <p>
+
+                    Espelhos são utilizados em veículos,
+                    instrumentos ópticos, ambientes domésticos
+                    e equipamentos científicos.
+
+                </p>
+
+            </div>
+
+        </div>
+
     </section>
+
 
 
     <!-- =====================================================
          ABA 5 — OLHO HUMANO
     ====================================================== -->
 
-    <section class="tab-panel" id="tab-5">
+    <section
+        class="tab-panel"
+        id="tab-5">
 
         <h2 class="section-title">
-            👁️ <span>Olho Humano</span>
+            👁️ Olho Humano
         </h2>
 
         <p class="section-description">
+
             O olho humano funciona como um sistema óptico
-            responsável pela formação das imagens.
+            que capta a luz e permite a formação das imagens
+            que percebemos.
+
         </p>
+
 
         <div class="content-box">
 
-            <h3>Formação da imagem</h3>
+            <h3>
+                Como enxergamos?
+            </h3>
 
             <p>
-                A luz entra no olho e passa por diferentes
-                estruturas até chegar à retina.
+
+                A luz entra no olho através da córnea e passa
+                pela pupila. Em seguida, o cristalino ajuda
+                a focalizar os raios luminosos.
+
             </p>
+
+            <p>
+
+                A luz chega à retina, onde existem células
+                especializadas capazes de detectar a luz.
+                Essas informações são transmitidas através
+                do nervo óptico até o cérebro.
+
+            </p>
+
+            <p>
+
+                O cérebro interpreta essas informações,
+                permitindo reconhecer formas, cores,
+                movimentos e detalhes do ambiente.
+
+            </p>
+
+        </div>
+
+
+        <div class="visual-box">
+
+            <svg
+                class="diagram"
+                viewBox="0 0 900 430"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <rect
+                    width="900"
+                    height="430"
+                    rx="20"
+                    fill="#080d1c"/>
+
+                <ellipse
+                    cx="450"
+                    cy="220"
+                    rx="280"
+                    ry="140"
+                    fill="#192a49"
+                    stroke="#9aaccc"
+                    stroke-width="4"/>
+
+                <ellipse
+                    cx="680"
+                    cy="220"
+                    rx="48"
+                    ry="110"
+                    fill="#263c62"/>
+
+                <circle
+                    cx="270"
+                    cy="220"
+                    r="45"
+                    fill="#10192d"
+                    stroke="#d9e2f0"
+                    stroke-width="4"/>
+
+                <line
+                    x1="60"
+                    y1="145"
+                    x2="270"
+                    y2="200"
+                    stroke="white"
+                    stroke-width="4"/>
+
+                <line
+                    x1="60"
+                    y1="295"
+                    x2="270"
+                    y2="240"
+                    stroke="white"
+                    stroke-width="4"/>
+
+                <line
+                    x1="315"
+                    y1="200"
+                    x2="680"
+                    y2="220"
+                    stroke="#f1d76a"
+                    stroke-width="4"/>
+
+                <line
+                    x1="315"
+                    y1="240"
+                    x2="680"
+                    y2="220"
+                    stroke="#f1d76a"
+                    stroke-width="4"/>
+
+                <text
+                    x="450"
+                    y="48"
+                    text-anchor="middle"
+                    font-size="23"
+                    fill="white">
+                    FORMAÇÃO DA IMAGEM NO OLHO
+                </text>
+
+                <text
+                    x="235"
+                    y="350"
+                    font-size="18"
+                    fill="#c1cee3">
+                    Cristalino
+                </text>
+
+                <text
+                    x="625"
+                    y="350"
+                    font-size="18"
+                    fill="#c1cee3">
+                    Retina
+                </text>
+
+                <text
+                    x="105"
+                    y="115"
+                    font-size="18"
+                    fill="#c1cee3">
+                    Luz
+                </text>
+
+            </svg>
+
+            <p class="visual-caption">
+
+                A luz entra no olho, é focalizada pelo sistema
+                óptico e chega à retina.
+
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <h3>
+                    👁️ Córnea
+                </h3>
+
+                <p>
+
+                    É uma estrutura transparente localizada
+                    na parte frontal do olho e participa da
+                    entrada e focalização da luz.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🔵 Pupila
+                </h3>
+
+                <p>
+
+                    É a abertura central da íris por onde a luz
+                    entra no olho. Seu tamanho pode variar
+                    conforme a iluminação.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🔎 Cristalino
+                </h3>
+
+                <p>
+
+                    É uma estrutura transparente que ajuda a
+                    focalizar a luz sobre a retina.
+
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    🧠 Retina
+                </h3>
+
+                <p>
+
+                    Contém células sensíveis à luz que participam
+                    da transformação dos estímulos luminosos em
+                    sinais para o sistema nervoso.
+
+                </p>
+
+            </div>
 
         </div>
 
     </section>
 
 
+
     <!-- =====================================================
          ABA 6 — VÍDEOS
-         SOMENTE OS 3 VÍDEOS
     ====================================================== -->
 
-    <section class="tab-panel" id="tab-6">
-
+    <section
+        class="tab-panel"
+        id="tab-6">
 
         <h2 class="section-title">
-
-            🎬 <span>Videoaulas</span>
-
+            🎬 Videoaulas
         </h2>
-
 
         <p class="section-description">
 
@@ -438,6 +1698,23 @@
             os conteúdos estudados na plataforma.
 
         </p>
+
+
+        <div class="video-intro">
+
+            <h3>
+                📚 Conteúdo em vídeo
+            </h3>
+
+            <p>
+
+                Nesta seção estão disponíveis três videoaulas
+                relacionadas aos conteúdos de Física e Óptica
+                apresentados neste projeto.
+
+            </p>
+
+        </div>
 
 
         <div class="videos-grid">
@@ -459,7 +1736,7 @@
                         height="1080">
 
                         <source
-                            src="WhatsApp Video 2026-09-01 at 09.36.33.mp4"
+                            src="VID_20260819_085931.mp4"
                             type="video/mp4">
 
                         Seu navegador não suporta
@@ -481,8 +1758,10 @@
                     </h3>
 
                     <p>
+
                         Conceitos básicos sobre luz,
                         reflexão e refração.
+
                     </p>
 
                 </div>
@@ -529,8 +1808,10 @@
                     </h3>
 
                     <p>
+
                         Entenda espelhos planos,
                         côncavos e convexos.
+
                     </p>
 
                 </div>
@@ -555,7 +1836,7 @@
                         height="1080">
 
                         <source
-                            src="WhatsApp Video 2026-09-01 at 09.36.34.mp4"
+                            src="WhatsApp Video 2026-09-04 at 11.45.36.mp4"
                             type="video/mp4">
 
                         Seu navegador não suporta
@@ -577,18 +1858,20 @@
                     </h3>
 
                     <p>
+
                         Aplicações dos conceitos de óptica
                         no cotidiano.
+
                     </p>
 
                 </div>
 
             </article>
 
-
         </div>
 
     </section>
+
 
 
     <!-- =====================================================
@@ -598,7 +1881,11 @@
     <footer>
 
         <p>
-            Projeto Integrador — Física e o Mundo
+            🌌 Projeto Integrador — Física e o Mundo
+        </p>
+
+        <p>
+            Física • Óptica • Tecnologia • Ciência
         </p>
 
         <p>
@@ -608,8 +1895,9 @@
     </footer>
 
 
+
     <!-- =====================================================
-         JAVASCRIPT — TROCA DE ABAS
+         JAVASCRIPT
     ====================================================== -->
 
     <script>
@@ -617,11 +1905,11 @@
         function openTab(tabId) {
 
             const tabs =
-                document.querySelectorAll('.tab-panel');
+                document.querySelectorAll(".tab-panel");
 
             tabs.forEach(function(tab) {
 
-                tab.classList.remove('active');
+                tab.classList.remove("active");
 
             });
 
@@ -631,7 +1919,12 @@
 
             if (selectedTab) {
 
-                selectedTab.classList.add('active');
+                selectedTab.classList.add("active");
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
 
             }
 
