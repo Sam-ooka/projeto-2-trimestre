@@ -2,14 +2,13 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OPTIC/X | A Ciência da Luz</title>
+
+    <title>Projeto Integrador — Física e o Mundo</title>
 
     <style>
-        /* ========================================
-           CONFIGURAÇÕES GERAIS
-        ======================================== */
 
         * {
             margin: 0;
@@ -17,539 +16,630 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            background:
-                radial-gradient(
-                    circle at 50% 10%,
-                    rgba(40, 100, 255, 0.18),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #05070f,
-                    #090d1a,
-                    #03040a
-                );
-            color: #eaf3ff;
             font-family: Arial, Helvetica, sans-serif;
-            overflow-x: hidden;
+            background: #050816;
+            color: white;
+            min-height: 100vh;
         }
-
-        /* ========================================
-           FUNDO FUTURISTA
-        ======================================== */
-
-        .grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image:
-                linear-gradient(
-                    rgba(255, 255, 255, 0.025) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255, 255, 255, 0.025) 1px,
-                    transparent 1px
-                );
-            background-size: 45px 45px;
-            mask-image:
-                linear-gradient(
-                    to bottom,
-                    black,
-                    transparent
-                );
-            z-index: -1;
-        }
-
-        /* ========================================
-           CABEÇALHO E NAVEGAÇÃO
-        ======================================== */
 
         header {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(5, 7, 15, 0.88);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(100, 180, 255, 0.18);
-        }
-
-        .navbar {
-            max-width: 1400px;
-            margin: auto;
-            min-height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: #55cfff;
-        }
-
-        nav {
-            display: flex;
-            gap: 22px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        nav a {
-            color: #d7e8ff;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            position: relative;
-            cursor: pointer;
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -7px;
-            width: 0%;
-            height: 2px;
-            background: #55cfff;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #55cfff;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* ========================================
-           HERO
-        ======================================== */
-
-        .hero {
-            min-height: 92vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 25px;
             text-align: center;
-            padding: 120px 25px 80px;
+            background: #0b1026;
+            border-bottom: 1px solid #26304f;
         }
 
-        .hero-content {
-            max-width: 1000px;
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
         }
 
-        .hero-tag {
-            display: inline-block;
-            padding: 10px 18px;
-            border: 1px solid rgba(85, 207, 255, 0.55);
-            color: #7ee5ff;
-            letter-spacing: 3px;
-            font-size: 0.75rem;
-            margin-bottom: 25px;
-            background: rgba(85, 207, 255, 0.08);
+        header p {
+            color: #aeb8d4;
         }
 
-        .hero h1 {
-            font-size: clamp(3rem, 10vw, 7rem);
-            line-height: 0.9;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(85, 207, 255, 0.35);
-        }
+        /* ===============================
+           MENU
+        =============================== */
 
-        .hero h1 span {
-            color: #55cfff;
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: 30px auto;
-            color: #aebed4;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .hero-buttons {
+        .menu {
             display: flex;
             justify-content: center;
-            gap: 15px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            gap: 10px;
+            padding: 20px;
+            background: #080d20;
         }
 
-        .button {
-            padding: 15px 25px;
-            text-decoration: none;
-            font-weight: 800;
-            border: 1px solid #55cfff;
-            color: #55cfff;
-            transition: 0.3s;
+        .menu button {
+            padding: 12px 18px;
+            border: 1px solid #354064;
+            border-radius: 10px;
+            background: #111936;
+            color: white;
             cursor: pointer;
+            transition: 0.3s;
         }
 
-        .button:hover {
-            background: #55cfff;
-            color: #05070f;
-            box-shadow: 0 0 30px rgba(85, 207, 255, 0.45);
+        .menu button:hover {
+            transform: translateY(-2px);
+            background: #18234b;
         }
 
-        /* ========================================
-           CONTEÚDO E SEÇÕES DA PÁGINA
-        ======================================== */
+        /* ===============================
+           ABAS
+        =============================== */
 
-        main {
-            width: 100%;
-        }
-
-        section {
-            max-width: 1250px;
+        .tab-panel {
+            display: none;
+            max-width: 1200px;
             margin: auto;
-            padding: 100px 30px;
-            scroll-margin-top: 90px;
+            padding: 50px 25px;
         }
 
-        .section-tag {
-            color: #55cfff;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
+        .tab-panel.active {
+            display: block;
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 20px;
+            font-size: 38px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-title span {
+            margin-left: 8px;
         }
 
         .section-description {
-            color: #aebed4;
-            max-width: 850px;
-            line-height: 1.8;
-            margin-bottom: 50px;
-        }
-
-        /* ========================================
-           IMAGEM DA FIBRA ÓPTICA
-        ======================================== */
-
-        .fiber-img {
-            width: 100%;
             max-width: 800px;
-            height: auto;
-            display: block;
-            margin: 30px auto 0;
-            border-radius: 16px;
-            border: 1px solid rgba(85, 207, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(85, 207, 255, 0.2);
+            margin: 0 auto 40px;
+            text-align: center;
+            color: #b8c1d9;
+            line-height: 1.7;
+            font-size: 17px;
         }
 
-        /* ========================================
-           CARDS
-        ======================================== */
+        /* ===============================
+           CONTEÚDO
+        =============================== */
 
-        .cards {
+        .content-box {
+            background: #0c132d;
+            border: 1px solid #283557;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .content-box h3 {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .content-box p {
+            color: #c5cce0;
+            line-height: 1.8;
+        }
+
+        /* ===============================
+           VÍDEOS
+        =============================== */
+
+        .videos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
         }
 
-        .card {
-            background: linear-gradient(145deg, rgba(20, 29, 50, 0.9), rgba(8, 12, 24, 0.9));
-            border: 1px solid rgba(100, 180, 255, 0.15);
-            padding: 28px;
-            border-radius: 16px;
-            transition: 0.35s;
-            position: relative;
+        .video-card {
+            background: #0c132d;
+            border: 1px solid #2b385c;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-container {
+            width: 100%;
+            background: #000;
             overflow: hidden;
         }
 
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
+        .video-container video {
+            display: block;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #55cfff, transparent);
-            opacity: 0;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+            background: #000;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(85, 207, 255, 0.6);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        .video-info {
+            padding: 25px;
         }
 
-        .card:hover::before {
-            opacity: 1;
+        .video-number {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
         }
 
-        .card h3 {
-            color: #ffffff;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+        .video-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
-        .card p {
-            color: #aebed4;
-            line-height: 1.7;
-            font-size: 0.95rem;
+        .video-info p {
+            color: #aeb8d4;
+            line-height: 1.6;
         }
 
-        /* ========================================
-           ILUSTRAÇÕES E DIAGRAMAS VISUAIS
-        ======================================== */
-
-        .rgb {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0;
-            margin-top: 30px;
-            min-height: 250px;
-        }
-
-        .rgb-circle {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.25);
-            margin-left: -35px;
-            mix-blend-mode: screen;
-        }
-
-        .rgb-circle:first-child {
-            margin-left: 0;
-        }
-
-        .red { background: rgba(255, 50, 50, 0.55); }
-        .green { background: rgba(50, 255, 120, 0.55); }
-        .blue { background: rgba(50, 120, 255, 0.55); }
-
-        .mirror-diagram {
-            margin-top: 30px;
-            min-height: 280px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .ray {
-            width: 220px;
-            height: 3px;
-            background: #55cfff;
-            box-shadow: 0 0 15px #55cfff;
-            transform: rotate(-25deg);
-        }
-
-        .mirror {
-            width: 8px;
-            height: 230px;
-            background: linear-gradient(#ffffff, #8bc7ff, #ffffff);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-        }
-
-        .eye-diagram {
-            width: min(500px, 100%);
-            height: 250px;
-            margin: 40px auto 0;
-            border-radius: 200px;
-            background: radial-gradient(circle at 28% 50%, #05070f 0 8%, #3c6f9c 9% 14%, #eaf3ff 15% 18%, #111a2d 19% 100%);
-            border: 3px solid rgba(85, 207, 255, 0.55);
-            box-shadow: inset 0 0 40px rgba(85, 207, 255, 0.15), 0 0 40px rgba(85, 207, 255, 0.2);
-        }
-
-        .ball {
-            width: 240px;
-            height: 240px;
-            margin: 40px auto;
-            border-radius: 50%;
-            background: radial-gradient(circle at 35% 30%, #ffffff, #d7e2ea 55%, #7b8a99);
-            box-shadow: inset -25px -25px 45px rgba(0, 0, 0, 0.35), 0 0 40px rgba(85, 207, 255, 0.25);
-            position: relative;
-        }
-
-        .ball::before {
-            content: "TRIONDA";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #111827;
-            font-weight: 900;
-            letter-spacing: 3px;
-            font-size: 1.2rem;
-        }
-
-        /* ========================================
-           RODAPÉ E RESPONSIVIDADE
-        ======================================== */
+        /* ===============================
+           RODAPÉ
+        =============================== */
 
         footer {
-            border-top: 1px solid rgba(100, 180, 255, 0.15);
-            padding: 45px 20px;
             text-align: center;
-            color: #8090a8;
+            padding: 35px;
+            margin-top: 40px;
+            background: #080d20;
+            color: #8e98b5;
         }
 
-        @media (max-width: 850px) {
-            .navbar { flex-direction: column; gap: 20px; }
-            nav { justify-content: center; gap: 15px; }
-            .hero { padding-top: 160px; }
-            .rgb-circle { width: 120px; height: 120px; margin-left: -25px; }
+        /* ===============================
+           CELULAR
+        =============================== */
+
+        @media (max-width: 800px) {
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
         }
 
-        @media (max-width: 500px) {
-            section { padding: 75px 20px; }
-            nav a { font-size: 0.75rem; }
-            .hero h1 { letter-spacing: 4px; }
-            .rgb-circle { width: 90px; height: 90px; margin-left: -15px; }
-        }
     </style>
+
 </head>
+
 
 <body>
 
-    <div class="grid-bg"></div>
 
-    <!-- CABEÇALHO -->
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
     <header>
-        <div class="navbar">
-            <a href="#inicio" class="logo">OPTIC<span>/X</span></a>
-            <nav>
-                <a href="#luz">Luz</a>
-                <a href="#fibra">Fibra</a>
-                <a href="#cores">Cores</a>
-                <a href="#espelhos">Espelhos</a>
-                <a href="#olho">Olho Humano</a>
-                <a href="#trionda">Trionda</a>
-            </nav>
-        </div>
+
+        <h1>🌌 Física e o Mundo</h1>
+
+        <p>
+            Projeto Integrador — Física e Óptica
+        </p>
+
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main>
 
-        <!-- HERO -->
-        <section class="hero" id="inicio">
-            <div class="hero-content">
-                <div class="hero-tag">FÍSICA • ÓPTICA • TECNOLOGIA</div>
-                <h1>A CIÊNCIA <br> DA <span>LUZ</span></h1>
-                <p>
-                    Uma viagem pela óptica, pela formação das imagens, pelas cores, pelos espelhos,
-                    pelo funcionamento do olho humano e pelas aplicações da ciência no mundo moderno.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#luz" class="button">EXPLORAR</a>
-                    <a href="#trionda" class="button">TECNOLOGIA</a>
+    <!-- =====================================================
+         MENU
+    ====================================================== -->
+
+    <nav class="menu">
+
+        <button onclick="openTab('tab-1')">
+            💡 Luz
+        </button>
+
+        <button onclick="openTab('tab-2')">
+            🔬 Fibra Ótica
+        </button>
+
+        <button onclick="openTab('tab-3')">
+            🎨 Cores
+        </button>
+
+        <button onclick="openTab('tab-4')">
+            🪞 Espelhos
+        </button>
+
+        <button onclick="openTab('tab-5')">
+            👁️ Olho Humano
+        </button>
+
+        <button onclick="openTab('tab-6')">
+            🎬 Vídeos
+        </button>
+
+    </nav>
+
+
+    <!-- =====================================================
+         ABA 1 — LUZ
+    ====================================================== -->
+
+    <section class="tab-panel active" id="tab-1">
+
+        <h2 class="section-title">
+            💡 <span>Luz</span>
+        </h2>
+
+        <p class="section-description">
+            A luz é uma forma de radiação eletromagnética
+            capaz de produzir a sensação visual.
+        </p>
+
+        <div class="content-box">
+
+            <h3>O que é a luz?</h3>
+
+            <p>
+                A luz pode se propagar pelo espaço e apresenta
+                diferentes propriedades físicas, como reflexão,
+                refração e dispersão.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABA 2 — FIBRA ÓTICA
+    ====================================================== -->
+
+    <section class="tab-panel" id="tab-2">
+
+        <h2 class="section-title">
+            🔬 <span>Fibra Ótica</span>
+        </h2>
+
+        <p class="section-description">
+            A fibra óptica utiliza a propagação da luz para
+            transmitir informações em alta velocidade.
+        </p>
+
+        <div class="content-box">
+
+            <h3>Como funciona?</h3>
+
+            <p>
+                A transmissão acontece principalmente por meio
+                do fenômeno da reflexão interna total.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABA 3 — CORES
+    ====================================================== -->
+
+    <section class="tab-panel" id="tab-3">
+
+        <h2 class="section-title">
+            🎨 <span>Cores</span>
+        </h2>
+
+        <p class="section-description">
+            As cores estão relacionadas à maneira como nossos
+            olhos e cérebro percebem diferentes frequências
+            da luz visível.
+        </p>
+
+        <div class="content-box">
+
+            <h3>Espectro visível</h3>
+
+            <p>
+                A luz branca pode ser separada em diferentes
+                componentes, formando um espectro de cores.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABA 4 — ESPELHOS
+    ====================================================== -->
+
+    <section class="tab-panel" id="tab-4">
+
+        <h2 class="section-title">
+            🪞 <span>Espelhos</span>
+        </h2>
+
+        <p class="section-description">
+            Os espelhos são superfícies capazes de refletir
+            a luz e formar imagens.
+        </p>
+
+        <div class="content-box">
+
+            <h3>Tipos de espelhos</h3>
+
+            <p>
+                Podemos estudar espelhos planos, côncavos
+                e convexos.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABA 5 — OLHO HUMANO
+    ====================================================== -->
+
+    <section class="tab-panel" id="tab-5">
+
+        <h2 class="section-title">
+            👁️ <span>Olho Humano</span>
+        </h2>
+
+        <p class="section-description">
+            O olho humano funciona como um sistema óptico
+            responsável pela formação das imagens.
+        </p>
+
+        <div class="content-box">
+
+            <h3>Formação da imagem</h3>
+
+            <p>
+                A luz entra no olho e passa por diferentes
+                estruturas até chegar à retina.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABA 6 — VÍDEOS
+         SOMENTE OS 3 VÍDEOS
+    ====================================================== -->
+
+    <section class="tab-panel" id="tab-6">
+
+
+        <h2 class="section-title">
+
+            🎬 <span>Videoaulas</span>
+
+        </h2>
+
+
+        <p class="section-description">
+
+            Assista às três videoaulas para complementar
+            os conteúdos estudados na plataforma.
+
+        </p>
+
+
+        <div class="videos-grid">
+
+
+            <!-- =================================================
+                 VÍDEO 1
+            ================================================== -->
+
+            <article class="video-card">
+
+                <div class="video-container">
+
+                    <video
+                        controls
+                        preload="metadata"
+                        playsinline
+                        width="1920"
+                        height="1080">
+
+                        <source
+                            src="WhatsApp Video 2026-09-01 at 09.36.33.mp4"
+                            type="video/mp4">
+
+                        Seu navegador não suporta
+                        vídeos HTML5.
+
+                    </video>
+
                 </div>
-            </div>
-        </section>
 
-        <!-- LUZ E FORMAÇÃO DE IMAGENS -->
-        <section id="luz">
-            <div class="section-tag">Fundamentos</div>
-            <h2 class="section-title">A Natureza da Luz</h2>
-            <p class="section-description">
-                A luz é uma forma de radiação eletromagnética visível ao olho humano. Ela se propaga em linha reta em meios homogêneos e transparentes.
-            </p>
-            <div class="cards">
-                <div class="card">
-                    <h3>Propagação Retilínea</h3>
-                    <p>Em meios homogêneos, a luz viaja em linha reta, formando sombras e penombras bem definidas.</p>
+
+                <div class="video-info">
+
+                    <div class="video-number">
+                        AULA 01
+                    </div>
+
+                    <h3>
+                        Introdução à Óptica
+                    </h3>
+
+                    <p>
+                        Conceitos básicos sobre luz,
+                        reflexão e refração.
+                    </p>
+
                 </div>
-                <div class="card">
-                    <h3>Refratariedade</h3>
-                    <p>Ao mudar de meio, a luz altera sua velocidade e direção, fenômeno conhecido como refração.</p>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 VÍDEO 2
+            ================================================== -->
+
+            <article class="video-card">
+
+                <div class="video-container">
+
+                    <video
+                        controls
+                        preload="metadata"
+                        playsinline
+                        width="1920"
+                        height="1080">
+
+                        <source
+                            src="WhatsApp Video 2026-09-01 at 09.36.45.mp4"
+                            type="video/mp4">
+
+                        Seu navegador não suporta
+                        vídeos HTML5.
+
+                    </video>
+
                 </div>
-            </div>
-        </section>
 
-        <!-- FIBRA ÓPTICA -->
-        <section id="fibra">
-            <div class="section-tag">Aplicações</div>
-            <h2 class="section-title">Fibra Óptica</h2>
-            <p class="section-description">
-                Transmissão de dados na velocidade da luz através da reflexão interna total dentro de um filamento de vidro ou plástico.
-            </p>
-            <img src="linha-de-velocidade-de-fibra-optica-de-faixa-de-luz-azul-fundo-futurista-para-tecnologia-5g-ou-6g-sem-fio-d_1066306-21373.avif" alt="">
-        </section>
 
-        <!-- CORES -->
-        <section id="cores">
-            <div class="section-tag">Espectro</div>
-            <h2 class="section-title">Síntese de Cores</h2>
-            <p class="section-description">
-                A mistura das cores-luz primárias (Vermelho, Verde e Azul) dá origem ao sistema RGB utilizado em telas e tecnologias de exibição.
-            </p>
-            <div class="rgb">
-                <div class="rgb-circle red"></div>
-                <div class="rgb-circle green"></div>
-                <div class="rgb-circle blue"></div>
-            </div>
-        </section>
+                <div class="video-info">
 
-        <!-- ESPELHOS -->
-        <section id="espelhos">
-            <div class="section-tag">Reflexão</div>
-            <h2 class="section-title">Espelhos e Reflexão</h2>
-            <p class="section-description">
-                A luz é refletida ao atingir superfícies polidas, mantendo ângulos iguais entre a incidência e a reflexão.
-            </p>
-            <div class="mirror-diagram">
-                <div class="ray"></div>
-                <div class="mirror"></div>
-            </div>
-        </section>
+                    <div class="video-number">
+                        AULA 02
+                    </div>
 
-        <!-- OLHO HUMANO -->
-        <section id="olho">
-            <div class="section-tag">Biologia</div>
-            <h2 class="section-title">O Olho Humano</h2>
-            <p class="section-description">
-                O olho atua como um sistema óptico natural complexo, projetando imagens invertidas na retina através do cristalino.
-            </p>
-            <div class="eye-diagram"></div>
-        </section>
+                    <h3>
+                        Espelhos
+                    </h3>
 
-        <!-- TRIONDA -->
-        <section id="trionda">
-            <div class="section-tag">Futuro</div>
-            <h2 class="section-title">Tecnologia Trionda</h2>
-            <p class="section-description">
-                Avanços tecnológicos que combinam diferentes frequências de onda para aplicações ópticas e científicas de ponta.
-            </p>
-            <div class="ball"></div>
-        </section>
+                    <p>
+                        Entenda espelhos planos,
+                        côncavos e convexos.
+                    </p>
 
-    </main>
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 VÍDEO 3
+            ================================================== -->
+
+            <article class="video-card">
+
+                <div class="video-container">
+
+                    <video
+                        controls
+                        preload="metadata"
+                        playsinline
+                        width="1920"
+                        height="1080">
+
+                        <source
+                            src="WhatsApp Video 2026-09-01 at 09.36.34.mp4"
+                            type="video/mp4">
+
+                        Seu navegador não suporta
+                        vídeos HTML5.
+
+                    </video>
+
+                </div>
+
+
+                <div class="video-info">
+
+                    <div class="video-number">
+                        AULA 03
+                    </div>
+
+                    <h3>
+                        Óptica e Aplicações
+                    </h3>
+
+                    <p>
+                        Aplicações dos conceitos de óptica
+                        no cotidiano.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
 
     <footer>
-        <p>&copy; OPTIC/X - A Ciência da Luz</p>
+
+        <p>
+            Projeto Integrador — Física e o Mundo
+        </p>
+
+        <p>
+            2026
+        </p>
+
     </footer>
 
+
+    <!-- =====================================================
+         JAVASCRIPT — TROCA DE ABAS
+    ====================================================== -->
+
+    <script>
+
+        function openTab(tabId) {
+
+            const tabs =
+                document.querySelectorAll('.tab-panel');
+
+            tabs.forEach(function(tab) {
+
+                tab.classList.remove('active');
+
+            });
+
+
+            const selectedTab =
+                document.getElementById(tabId);
+
+            if (selectedTab) {
+
+                selectedTab.classList.add('active');
+
+            }
+
+        }
+
+    </script>
+
+
 </body>
+
 </html>
